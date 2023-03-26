@@ -9,8 +9,8 @@ const fontMontserrat = Montserrat({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${fontMontserrat.variable} font-sans`}>
+    <div className={`${fontMontserrat.variable} font-sans`}>
       <Component {...pageProps} />
-    </main>
+    </div>
   );
 }
