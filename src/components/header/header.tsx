@@ -8,7 +8,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-container items-center justify-between">
         <Link href={'/'}>
           <h1 className="flex items-center gap-2 p-8 py-4 font-montserrat text-3xl font-semibold">
-            <div className="inline-block h-10">
+            <div className="h-10">
               <Logo />
             </div>
             GAME JURY

@@ -1,10 +1,16 @@
 import Link from 'next/link';
+import Logo from '../svg/logo';
 
 export default function Footer() {
   return (
     <footer className="mx-auto w-full max-w-container">
       <div className="flex justify-between border-t border-gray-700 p-12 py-8">
-        <div className="font-montserrat text-xl">GAME JURY</div>
+        <div className="flex items-center gap-2 font-montserrat text-xl">
+          <div className="h-6">
+            <Logo />
+          </div>
+          GAME JURY
+        </div>
         <div>
           <a
             className="link"

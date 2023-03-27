@@ -5,8 +5,8 @@
 @layer base {
   img,
   svg {
-    @apply inline-block;
     @apply h-full;
+    @apply w-full;
   }
 }
 

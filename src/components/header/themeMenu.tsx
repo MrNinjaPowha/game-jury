@@ -50,30 +50,36 @@ export default function ThemeMenu() {
         ref={dropdown}
       >
         <button
-          className="h-10 w-full min-w-max bg-black bg-opacity-0 p-4 py-1 text-right data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
+          className="flex w-full min-w-max items-center justify-end bg-black bg-opacity-0 p-4 py-1 text-right data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
           disabled={theme === 'light' || !expanded}
           data-current={theme === 'light'}
           onClick={() => setTheme('light')}
         >
-          <ThemeIcon icon="light" activeTheme={colorScheme} />
+          <div className="h-10 p-1">
+            <ThemeIcon icon="light" activeTheme={colorScheme} />
+          </div>
           Lightmode
         </button>
         <button
-          className="h-10 w-full min-w-max bg-black bg-opacity-0 p-4 py-1 text-right data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
+          className="flex w-full min-w-max items-center justify-end bg-black bg-opacity-0 p-4 py-1 data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
           disabled={theme === 'dark' || !expanded}
           data-current={theme === 'dark'}
           onClick={() => setTheme('dark')}
         >
-          <ThemeIcon icon="dark" activeTheme={colorScheme} />
+          <div className="h-10 p-1">
+            <ThemeIcon icon="dark" activeTheme={colorScheme} />
+          </div>
           Darkmode
         </button>
         <button
-          className="h-10 w-full min-w-max bg-black bg-opacity-0 p-4 py-1 text-right data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
+          className="flex w-full min-w-max items-center justify-end bg-black bg-opacity-0 p-4 py-1 text-right data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
           disabled={theme === 'system' || !expanded}
           data-current={theme === 'system'}
           onClick={() => setTheme('system')}
         >
-          <ThemeIcon icon={systemTheme} activeTheme={colorScheme} />
+          <div className="h-10 p-1">
+            <ThemeIcon icon={systemTheme} activeTheme={colorScheme} />
+          </div>
           Use system default
         </button>
       </div>
