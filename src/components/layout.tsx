@@ -6,7 +6,7 @@ export default function Layout(props: PropsWithChildren) {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1">{props.children}</main>
+      <main className="mx-auto max-w-container flex-1 py-4">{props.children}</main>
       <Footer />
     </div>
   );

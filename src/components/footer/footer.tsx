@@ -11,7 +11,10 @@ export default function Footer() {
           </div>
           GAME JURY
         </div>
-        <div>
+        <div className="flex gap-4">
+          <Link className="link" href={'/about'}>
+            About Us
+          </Link>
           <a
             className="link"
             href={'https://github.com/MrNinjaPowha'}
