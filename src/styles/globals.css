@@ -34,8 +34,4 @@
   html.dark .link:visited {
     @apply text-violet-500;
   }
-
-  .site-name-clip-path {
-    clip-path: polygon(0 0%, 100% 0, 75% 100%, 0 100%);
-  }
 }
