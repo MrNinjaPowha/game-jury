@@ -3,7 +3,7 @@ import ThemeMenu from './themeMenu';
 
 export default function Header() {
   return (
-    <div className="flex items-center justify-between bg-gray-300 dark:bg-slate-800">
+    <header className="flex items-center justify-between bg-gray-300 dark:bg-slate-800">
       <Link href={'/'}>
         <h1 className="site-name-clip-path bg-red-800 p-8 py-4 pr-20 font-montserrat text-3xl font-semibold text-white">
           GAME JURY
@@ -18,6 +18,6 @@ export default function Header() {
           Login
         </Link>
       </div>
-    </div>
+    </header>
   );
 }

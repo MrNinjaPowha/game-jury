@@ -1,9 +1,5 @@
-import Header from '@/components/header/header';
+import Layout from '@/components/layout';
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <Layout></Layout>;
 }

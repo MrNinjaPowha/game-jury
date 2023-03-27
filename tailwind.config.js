@@ -6,21 +6,13 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      maxWidth: {
+        container: '75rem',
+      },
       fontFamily: {
         montserrat: ['var(--font-montserrat)', ...defaultTheme.fontFamily.sans],
       },
     },
   },
   darkMode: 'class',
-  plugins: [
-    plugin(({ addComponents }) => {
-      addComponents({
-        '.btn': {
-          padding: '.5rem 1rem',
-          borderRadius: '.25rem',
-          fontWeight: 'bold',
-        },
-      });
-    }),
-  ],
 };

@@ -2,12 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-img,
-svg {
-  display: inline-block;
-  height: 100%;
+@layer base {
+  img,
+  svg {
+    @apply inline-block;
+    @apply h-full;
+  }
 }
 
-.site-name-clip-path {
-  clip-path: polygon(0 0%, 100% 0, 75% 100%, 0 100%);
+@layer components {
+  .btn {
+    @apply px-4;
+    @apply py-2;
+    @apply rounded;
+    @apply font-bold;
+  }
+
+  .link {
+    @apply text-blue-700;
+    @apply font-semibold;
+  }
+  .link:is(:hover, :focus-visible) {
+    @apply underline;
+  }
+  .link:visited {
+    @apply text-violet-800;
+  }
+  html.dark .link {
+    @apply text-blue-500;
+  }
+  html.dark .link:visited {
+    @apply text-violet-500;
+  }
+
+  .site-name-clip-path {
+    clip-path: polygon(0 0%, 100% 0, 75% 100%, 0 100%);
+  }
 }
