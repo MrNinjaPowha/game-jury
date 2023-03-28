@@ -6,6 +6,11 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        gray: {
+          350: 'rgb(183, 188 197)',
+        },
+      },
       maxWidth: {
         container: '75rem',
       },

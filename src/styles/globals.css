@@ -17,21 +17,35 @@
     @apply rounded;
     @apply font-bold;
   }
+  .btn-default {
+    @apply bg-gray-200;
+    @apply hover:bg-gray-300;
+    @apply focus-visible:bg-gray-300;
+    @apply active:bg-gray-350;
+    @apply dark:bg-slate-800;
+    @apply dark:hover:bg-slate-700;
+    @apply dark:focus-visible:bg-slate-700;
+    @apply dark:active:bg-slate-600;
+    @apply transition-colors;
+    @apply duration-150;
+  }
+  .btn-blue {
+    @apply text-white;
+    @apply bg-blue-500;
+    @apply hover:bg-blue-600;
+    @apply focus-visible:bg-blue-600;
+    @apply active:bg-blue-700;
+    @apply transition-colors;
+    @apply duration-150;
+  }
 
   .link {
     @apply text-blue-700;
+    @apply dark:text-blue-500;
     @apply font-semibold;
-  }
-  .link:is(:hover, :focus-visible) {
-    @apply underline;
-  }
-  .link:visited {
-    @apply text-violet-800;
-  }
-  html.dark .link {
-    @apply text-blue-500;
-  }
-  html.dark .link:visited {
-    @apply text-violet-500;
+    @apply hover:underline;
+    @apply focus-visible:underline;
+    @apply visited:text-violet-800;
+    @apply visited:dark:text-violet-500;
   }
 }

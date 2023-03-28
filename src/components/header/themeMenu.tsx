@@ -50,7 +50,7 @@ export default function ThemeMenu() {
         ref={dropdown}
       >
         <button
-          className="flex w-full min-w-max items-center justify-end bg-black bg-opacity-0 p-4 py-1 text-right data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
+          className="btn-default flex w-full min-w-max items-center justify-end p-4 py-1 data-[current=true]:!bg-inherit"
           disabled={theme === 'light' || !expanded}
           data-current={theme === 'light'}
           onClick={() => setTheme('light')}
@@ -61,7 +61,7 @@ export default function ThemeMenu() {
           Lightmode
         </button>
         <button
-          className="flex w-full min-w-max items-center justify-end bg-black bg-opacity-0 p-4 py-1 data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
+          className="btn-default flex w-full min-w-max items-center justify-end p-4 py-1 data-[current=true]:!bg-inherit"
           disabled={theme === 'dark' || !expanded}
           data-current={theme === 'dark'}
           onClick={() => setTheme('dark')}
@@ -72,7 +72,7 @@ export default function ThemeMenu() {
           Darkmode
         </button>
         <button
-          className="flex w-full min-w-max items-center justify-end bg-black bg-opacity-0 p-4 py-1 text-right data-[current=false]:hover:bg-opacity-5 data-[current=false]:focus-visible:bg-opacity-5 data-[current=false]:active:bg-opacity-10 dark:bg-white dark:bg-opacity-0"
+          className="btn-default flex w-full min-w-max items-center justify-end p-4 py-1 data-[current=true]:!bg-inherit"
           disabled={theme === 'system' || !expanded}
           data-current={theme === 'system'}
           onClick={() => setTheme('system')}

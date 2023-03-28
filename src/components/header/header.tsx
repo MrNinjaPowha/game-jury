@@ -16,10 +16,7 @@ export default function Header() {
         </Link>
         <div className="flex items-center gap-4 px-8">
           <ThemeMenu />
-          <Link
-            href={'/account/login'}
-            className="btn bg-blue-500 text-white transition-colors duration-150 hover:bg-blue-600 focus-visible:bg-blue-600 active:bg-blue-700"
-          >
+          <Link href={'/account/login'} className="btn btn-blue">
             Login
           </Link>
         </div>
