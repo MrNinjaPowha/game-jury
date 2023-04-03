@@ -1,12 +1,19 @@
-import { Sequelize } from 'sequelize';
-import LOGIN from './login.json';
+import mysql from 'mysql2/promise';
 
-const sequelize = new Sequelize(LOGIN.name, LOGIN.username, LOGIN.password, {
-  host: LOGIN.host,
-  dialect: 'mysql',
-  define: {
-    freezeTableName: true,
-  },
-});
+async function executeQuery(sql: string) {
+  try {
+    const database = await mysql.createConnection({
+      host: process.env.DBHost,
+      database: process.env.DBName,
+      user: process.env.DBUser,
+      password: process.env.DBPassword,
+    });
 
-export default sequelize;
+    return database.query(sql);
+  } catch (err) {
+    console.error(err);
+    return [null];
+  }
+}
+
+export { executeQuery };
