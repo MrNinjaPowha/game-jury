@@ -1,8 +1,8 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties } from 'react';
 
 const iconColors = {
-  light: '#000',
-  dark: '#fff',
+  light: '#1f2937',
+  dark: '#e5e7eb',
 };
 
 function LightThemeIcon(props: { color?: string }) {
