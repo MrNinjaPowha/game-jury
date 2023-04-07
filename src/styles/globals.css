@@ -38,6 +38,22 @@
     @apply transition-colors;
     @apply duration-150;
   }
+  .btn-icon {
+    @apply p-2;
+    @apply rounded-full;
+    @apply bg-black;
+    @apply bg-opacity-0;
+    @apply hover:bg-opacity-5;
+    @apply focus-visible:bg-opacity-5;
+    @apply active:bg-opacity-10;
+    @apply dark:bg-white;
+    @apply dark:bg-opacity-0;
+    @apply dark:hover:bg-opacity-5;
+    @apply dark:focus-visible:bg-opacity-5;
+    @apply dark:active:bg-opacity-10;
+    @apply transition-all;
+    @apply duration-100;
+  }
 
   .link {
     @apply text-blue-700;
@@ -47,5 +63,32 @@
     @apply focus-visible:underline;
     @apply visited:text-violet-800;
     @apply visited:dark:text-violet-500;
+  }
+
+  .loading-spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: loading-spin 2000ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    -webkit-animation: loading-spin 2000ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  @keyframes loading-spin {
+    50% {
+      -webkit-transform: rotate(720deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+    }
+  }
+  @-webkit-keyframes loading-spin {
+    50% {
+      -webkit-transform: rotate(720deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+    }
   }
 }

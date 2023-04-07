@@ -37,15 +37,12 @@ export default function ThemeMenu() {
 
   return (
     <div className="relative" onBlur={handleBlur}>
-      <button
-        className="h-12 w-12 rounded-full bg-black bg-opacity-0 p-2 transition-all duration-100 hover:bg-opacity-5 focus-visible:bg-opacity-5 active:bg-opacity-10 dark:bg-white dark:bg-opacity-0 dark:hover:bg-opacity-5 dark:focus-visible:bg-opacity-5 dark:active:bg-opacity-10"
-        onClick={() => setExpanded(!expanded)}
-      >
+      <button className="btn-icon h-12 w-12" onClick={() => setExpanded(!expanded)}>
         <ThemeIcon icon={colorScheme} activeTheme={colorScheme} />
       </button>
 
       <div
-        className="bg absolute right-0 z-10 mt-2 max-w-max rounded-md border border-gray-300 bg-gray-200 py-2 shadow-md transition-opacity duration-150 data-[expanded=false]:opacity-0 dark:border-slate-700 dark:bg-slate-800"
+        className="absolute right-0 z-10 mt-2 max-w-max rounded-md border border-gray-300 bg-gray-200 py-2 shadow-md transition-opacity duration-150 data-[expanded=false]:invisible data-[expanded=false]:opacity-0 dark:border-slate-700 dark:bg-slate-800"
         data-expanded={expanded}
         ref={dropdown}
       >
