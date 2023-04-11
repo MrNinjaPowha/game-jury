@@ -19,5 +19,14 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    plugin(({ matchUtilities }) => {
+      matchUtilities({
+        'grid-col-auto-max': (value) => ({
+          gridTemplateColumns: `repeat(auto-fit, minmax(min(${value}rem, 100%), 1fr))`,
+        }),
+      });
+    }),
+  ],
   darkMode: 'class',
 };

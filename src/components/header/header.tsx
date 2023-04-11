@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import Logo from '../svg/logo';
 import ThemeMenu from './themeMenu';
+import SearchBar from './searcbar';
+import SearchModal from './searchModal';
+import PageMenu from './pageMenu';
 
 export default function Header() {
   return (
@@ -8,14 +11,19 @@ export default function Header() {
       <div className="mx-auto flex max-w-container items-center justify-between">
         <Link href={'/'}>
           <h1 className="flex items-center gap-2 p-8 py-4 font-montserrat text-3xl font-semibold">
-            <div className="h-10">
+            <div className="w-6 flex-shrink-0">
               <Logo />
             </div>
             GAME JURY
           </h1>
         </Link>
-        <div className="flex items-center gap-4 px-8">
-          <ThemeMenu />
+        <SearchBar />
+        <div className="flex items-center gap-4 pr-8">
+          <div className="flex items-center gap-2">
+            <SearchModal />
+            <PageMenu />
+            <ThemeMenu />
+          </div>
           <Link href={'/account/login'} className="btn btn-blue">
             Login
           </Link>
