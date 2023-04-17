@@ -5,22 +5,22 @@ interface TableUser {
   id: PrimaryKey;
   username: string;
   password: string;
-  birthdate: Date;
+  birthdate: string;
   favoriteGameId: ForeignKey | null;
-  createdAt: Date;
+  createdAt: string;
 }
 
 interface TableGame {
   id: PrimaryKey;
   title: string;
   titleSlug: string;
-  releaseDate: Date;
+  releaseDate: string;
   ageRatingId: ForeignKey;
   boxArtImage: string;
   bannerImage: string;
   summary: string;
-  createdAt: Date;
-  editedAt: Date;
+  createdAt: string;
+  editedAt: string;
 }
 
 interface TableReview {
@@ -29,8 +29,8 @@ interface TableReview {
   userId: ForeignKey | null;
   rating: number;
   message: string | null;
-  postedAt: Date;
-  editedAt: Date;
+  postedAt: string;
+  editedAt: string;
 }
 
 interface TableComment {
@@ -38,8 +38,8 @@ interface TableComment {
   gameId: ForeignKey;
   userId: ForeignKey;
   message: string;
-  postedAt: Date;
-  editedAt: Date;
+  postedAt: string;
+  editedAt: string;
 }
 
 interface TableAgeRating {
