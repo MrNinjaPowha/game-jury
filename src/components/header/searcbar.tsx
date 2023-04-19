@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { TableGame } from '../../../server/database/tableInterfaces';
 import Link from 'next/link';
 import SearchIcon from '../svg/searchIcon';
 import LoadingSpinner from '../loadingSpinner';
+import { GamesList } from '@/pages/api/db/get-games-list';
 
 export default function SearchBar() {
   const dropdown = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [searchData, setSearchData] = useState<TableGame[]>();
+  const [searchData, setSearchData] = useState<GamesList[]>();
 
   useEffect(() => {
     fetch('/api/db/get-games-list')

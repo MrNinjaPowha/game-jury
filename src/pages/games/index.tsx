@@ -1,4 +1,3 @@
-import { TableGame } from '../../../server/database/tableInterfaces';
 import Layout from '@/components/layout';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -6,10 +5,11 @@ import Link from 'next/link';
 import Head from 'next/head';
 import LoadingSpinner from '@/components/loadingSpinner';
 import Error from 'next/error';
+import { GamesList } from '../api/db/get-games-list';
 
 export default function GameLibrary() {
   const [loading, setLoading] = useState(true);
-  const [gamesData, setGamesData] = useState<TableGame[]>();
+  const [gamesData, setGamesData] = useState<GamesList[]>();
 
   useEffect(() => {
     fetch('/api/db/get-games-list')
