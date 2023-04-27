@@ -5,6 +5,7 @@ import { TableGame } from '../../../server/database/tableInterfaces';
 import Head from 'next/head';
 import Error from 'next/error';
 import Image from 'next/image';
+import ReviewSection from '@/components/game-article/review-section';
 
 type JoinedTableGame = TableGame & {
   ageRatingName: string;
@@ -74,6 +75,7 @@ export default function GameArticle(props: { data: string }) {
           </table>
           <p className="max-w-4xl">{data.summary}</p>
         </div>
+        <ReviewSection className="mt-8" gameId={data.id} />
       </Layout>
     </>
   );
