@@ -41,7 +41,7 @@ export default function ReviewSection(props: { gameId: number; className?: strin
 
   return (
     <div className={props.className}>
-      <div className="mb-2 flex items-center justify-between rounded border border-gray-300 bg-gray-200 p-4 py-2">
+      <div className="mb-2 flex items-center justify-between rounded border border-gray-300 bg-gray-200 p-4 py-2 dark:border-slate-700 dark:bg-slate-800">
         <h3 className="text-2xl">Reviews</h3>
         <div>
           <button className="btn-icon rounded-md px-3" onClick={() => setShowModal(true)}>

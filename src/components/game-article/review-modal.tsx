@@ -51,7 +51,7 @@ export default function ReviewModal(props: ModalProps & { gameId: number }) {
       <div className="flex items-start gap-2 p-2">
         <RatingSelector setRating={setRating} />
         <textarea
-          className="max-h-80 w-[32rem] min-w-0 flex-1 resize-none border border-gray-300 p-2 py-1 shadow-inner"
+          className="max-h-80 w-[32rem] min-w-0 flex-1 resize-none rounded border border-gray-300 p-2 py-1 shadow-inner dark:border-slate-600 dark:bg-slate-800"
           ref={messageRef}
         ></textarea>
       </div>
