@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import SearchIcon from '../svg/searchIcon';
-import LoadingSpinner from '../loadingSpinner';
 import { GamesList } from '@/pages/api/db/get-games-list';
 
 export default function SearchBar() {
@@ -62,7 +61,9 @@ export default function SearchBar() {
         ref={dropdown}
       >
         {loading ? (
-          <LoadingSpinner />
+          <div className="m-auto max-w-max p-4">
+            <div className="loading-spinner"></div>
+          </div>
         ) : (
           searchResults ?? <p className="p-2 px-4">Error: Could not load searchdata</p>
         )}

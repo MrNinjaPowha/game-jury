@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import LoadingSpinner from '@/components/loadingSpinner';
 import Error from 'next/error';
 import { GamesList } from '../api/db/get-games-list';
 
@@ -50,7 +49,9 @@ export default function GameLibrary() {
       </Head>
       <Layout>
         {loading ? (
-          <LoadingSpinner />
+          <div className="m-auto max-w-max p-4">
+            <div className="loading-spinner"></div>
+          </div>
         ) : (
           <div className="grid max-w-container gap-4 grid-col-auto-max-[8]">{html}</div>
         )}
