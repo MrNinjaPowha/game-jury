@@ -39,6 +39,7 @@ export default function ReviewModal(props: ModalProps & { gameId: number }) {
       .then(() => {
         setSubmitting(false);
         onClose();
+        window.location.reload();
       })
       .catch((err) => {
         setSubmitting(false);
@@ -57,16 +58,6 @@ export default function ReviewModal(props: ModalProps & { gameId: number }) {
       </div>
       {error && <p>{error}</p>}
       <div className="ml-auto flex max-w-max gap-2">
-        <button className="btn btn-blue" onClick={onSubmit}>
-          {submitting && (
-            <div className="dark m-auto h-6 w-6">
-              <div className="loading-spinner"></div>
-            </div>
-          )}
-          <div className="overflow-hidden data-[submitting=true]:h-0" data-submitting={submitting}>
-            Submit
-          </div>
-        </button>
         <LoadingButton
           className="btn btn-blue"
           onClick={onSubmit}
