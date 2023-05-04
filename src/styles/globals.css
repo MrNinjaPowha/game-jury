@@ -16,7 +16,6 @@
     @apply px-4;
     @apply py-2;
     @apply rounded;
-    @apply font-bold;
   }
 
   .btn-default {
