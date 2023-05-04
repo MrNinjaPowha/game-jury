@@ -41,4 +41,8 @@ function getTimeSince(date: Date) {
   return formattedTimeSince;
 }
 
-export { getTimeSince };
+function formatDate(date: Date) {
+  return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`;
+}
+
+export { getTimeSince, formatDate };
