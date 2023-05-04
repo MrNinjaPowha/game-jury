@@ -9,7 +9,6 @@ const PostReview: NextApiHandler = async (req, res) => {
   }
 
   const data: TableReview = JSON.parse(req.body);
-  console.log(data);
 
   if (data.message) data.message = `"${data.message}"`;
 
