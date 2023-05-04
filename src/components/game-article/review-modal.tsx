@@ -44,7 +44,6 @@ export default function ReviewModal(props: ModalProps & { gameId: number }) {
         setSubmitting(false);
         console.error(err);
       });
-    console.log(messageRef.current?.value, rating);
   }
 
   return (
