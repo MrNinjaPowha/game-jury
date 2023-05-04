@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import Modal, { ModalProps } from '../modal';
 import RatingSelector from './rating-selector';
+import LoadingButton from '../loadingButton';
 
 export default function ReviewModal(props: ModalProps & { gameId: number }) {
   const [error, setError] = useState<string | null>(null);
@@ -67,6 +68,14 @@ export default function ReviewModal(props: ModalProps & { gameId: number }) {
             Submit
           </div>
         </button>
+        <LoadingButton
+          className="btn btn-blue"
+          onClick={onSubmit}
+          loading={submitting}
+          spinnerClass="border-t-gray-200 border-gray-200/30"
+        >
+          Submit
+        </LoadingButton>
         <button className="btn btn-default" onClick={onClose}>
           Cancel
         </button>
