@@ -62,7 +62,7 @@ export default function SearchBar() {
       >
         {loading ? (
           <div className="m-auto max-w-max p-4">
-            <div className="loading-spinner"></div>
+            <div className="loading-spinner h-12 w-12"></div>
           </div>
         ) : (
           searchResults ?? <p className="p-2 px-4">Error: Could not load searchdata</p>
