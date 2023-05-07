@@ -6,10 +6,12 @@ import SearchModal from './searchModal';
 import PageMenu from './pageMenu';
 import { useEffect, useState } from 'react';
 import { VerifyTokenResponse } from '@/pages/api/users/verify-token';
+import { UserTokenObject } from '@/pages/api/users/authenticate';
 import ProfileMenu from './profileMenu';
+import { JwtPayload } from 'jsonwebtoken';
 
 export default function Header() {
-  const [authorized, setAuthorized] = useState(false);
+  const [user, setUser] = useState<JwtPayload & UserTokenObject>();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -19,7 +21,11 @@ export default function Header() {
     })
       .then((res) => res.json())
       .then((res: VerifyTokenResponse) => {
-        setAuthorized(res.success);
+        if (!res.userToken || !res.success) return;
+        if (typeof res.userToken !== 'object') return;
+
+        const userToken = res.userToken as JwtPayload & UserTokenObject;
+        if (userToken.username) setUser(userToken);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -42,8 +48,8 @@ export default function Header() {
             <PageMenu />
             <ThemeMenu />
           </div>
-          {authorized ? (
-            <ProfileMenu />
+          {user ? (
+            <ProfileMenu user={user} />
           ) : (
             <Link href={'/account/login'} className="btn btn-blue">
               Login
