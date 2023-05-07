@@ -1,5 +1,6 @@
 import LoadingButton from '@/components/loadingButton';
 import Logo from '@/components/svg/logo';
+import { AuthenticateResponse as AuthenticationResponse } from '@/pages/api/users/authenticate';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
@@ -27,15 +28,23 @@ export default function Login() {
           password: password.current.value,
         }),
       });
-      const verified: boolean = await response.json();
+      const authentication: AuthenticationResponse = await response.json();
 
-      if (verified) {
-        window.location.assign('/');
-      } else {
-        setFormError('username or password incorrect');
+      if (!authentication.success) {
+        setFormError(authentication.error);
         setLoading(false);
+        return;
       }
+      if (!authentication.token) {
+        setFormError('something went wrong, please try again later.');
+        setLoading(false);
+        return;
+      }
+
+      localStorage.setItem('token', authentication.token);
+      window.location.assign('/');
     } catch (err) {
+      console.error(err);
       setFormError('something went wrong, please try again later.');
       setLoading(false);
     }
@@ -73,7 +82,7 @@ export default function Login() {
             ref={password}
           />
           {formError && <p className="text-sm text-red-600">{formError}</p>}
-          <div className="mt-4 flex gap-2">
+          <div className="mt-4 flex items-center gap-2">
             <LoadingButton
               className="btn btn-blue"
               onClick={onSubmit}
