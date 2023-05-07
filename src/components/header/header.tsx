@@ -6,7 +6,7 @@ import SearchModal from './searchModal';
 import PageMenu from './pageMenu';
 import { useEffect, useState } from 'react';
 import { VerifyTokenResponse } from '@/pages/api/users/verify-token';
-import Image from 'next/image';
+import ProfileMenu from './profileMenu';
 
 export default function Header() {
   const [authorized, setAuthorized] = useState(false);
@@ -43,9 +43,7 @@ export default function Header() {
             <ThemeMenu />
           </div>
           {authorized ? (
-            <Link href={'/account'} className="">
-              <Image src={'/img'} alt="profile" width={100} height={100} />
-            </Link>
+            <ProfileMenu />
           ) : (
             <Link href={'/account/login'} className="btn btn-blue">
               Login
