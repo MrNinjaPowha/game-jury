@@ -50,7 +50,7 @@ export default function GameLibrary() {
       <Layout>
         {loading ? (
           <div className="m-auto max-w-max p-4">
-            <div className="loading-spinner"></div>
+            <div className="loading-spinner h-12 w-12"></div>
           </div>
         ) : (
           <div className="grid max-w-container gap-4 grid-col-auto-max-[8]">{html}</div>
