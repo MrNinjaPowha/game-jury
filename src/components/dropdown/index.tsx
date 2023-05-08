@@ -13,7 +13,6 @@ export default function Dropdown(props: DropdownProps) {
   useEffect(() => {
     self.current?.querySelector('.dropdown-button')?.addEventListener('click', () => {
       setExpanded(!expanded);
-      console.log('click');
     });
     self.current?.querySelectorAll('.dropdown-option').forEach((button) =>
       button.addEventListener('click', () => {
