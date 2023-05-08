@@ -1,6 +1,6 @@
 import LoadingButton from '@/components/loadingButton';
 import Logo from '@/components/svg/logo';
-import { AuthenticateResponse as AuthenticationResponse } from '@/pages/api/users/authenticate';
+import { AuthenticateResponse } from '@/pages/api/users/authenticate';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
@@ -28,7 +28,7 @@ export default function Login() {
           password: password.current.value,
         }),
       });
-      const authentication: AuthenticationResponse = await response.json();
+      const authentication: AuthenticateResponse = await response.json();
 
       if (!authentication.success) {
         setFormError(authentication.error);

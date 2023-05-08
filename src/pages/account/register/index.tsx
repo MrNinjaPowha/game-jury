@@ -2,6 +2,7 @@ import LoadingButton from '@/components/loadingButton';
 import Logo from '@/components/svg/logo';
 import { User, validateUser } from '@/helpers/account/user-validation';
 import { formatDate } from '@/helpers/datetime';
+import { AuthenticateResponse } from '@/pages/api/users/authenticate';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
@@ -48,11 +49,41 @@ export default function Register() {
         body: JSON.stringify(user),
       });
 
-      window.location.assign('/');
+      login(user.username, user.password);
     } catch (err) {
       setFormError('something went wrong, please try again later.');
       setLoading(false);
     }
+  }
+
+  async function login(username: string, password: string) {
+    try {
+      const response = await fetch('/api/users/authenticate', {
+        method: 'POST',
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+      const authentication: AuthenticateResponse = await response.json();
+
+      if (!authentication.success) {
+        setFormError(authentication.error);
+        setLoading(false);
+        return;
+      }
+      if (!authentication.token) {
+        setFormError('something went wrong, please try again later.');
+        setLoading(false);
+        return;
+      }
+
+      localStorage.setItem('token', authentication.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    window.location.assign('/');
   }
 
   return (

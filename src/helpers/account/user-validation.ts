@@ -8,7 +8,9 @@ const userSchema = Yup.object({
   username: Yup.string()
     .required()
     .min(8, 'username must be at least 8 characters.')
-    .max(20, 'usernam must be less than 20 characters.')
+    .max(20, 'username must be less than 20 characters.')
+    .matches(/^[A-Za-z0-9]+(?:[_-][A-Za-z0-9]+)*$/, 'username not valid')
+    .notOneOf(['Guest'], '"Guest" is reserved for anyone logged out')
     .test('Unique username', 'username already in use.', (value) => isUsernameAvailable(value)),
   password: Yup.string().password().required(),
   birthdate: Yup.date().required(),
