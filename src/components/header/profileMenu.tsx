@@ -12,7 +12,19 @@ export default function ProfileMenu(props: { user: JwtPayload & UserTokenObject 
   return (
     <Dropdown>
       <Dropdown.Button>
-        <Image src={props.user.profileImage} alt="profile" width={100} height={100} />
+        {props.user.profileImage ? (
+          <Image
+            className="h-12 w-12 border border-gray-400 dark:border-gray-300"
+            src={props.user.profileImage}
+            alt="profile"
+            width={100}
+            height={100}
+          />
+        ) : (
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-400 bg-red-700 text-3xl text-gray-200 dark:border-gray-300">
+            {props.user.username[0]}
+          </div>
+        )}
       </Dropdown.Button>
       <Dropdown.Menu>
         <Dropdown.Link href={'/account'}>My Profile</Dropdown.Link>

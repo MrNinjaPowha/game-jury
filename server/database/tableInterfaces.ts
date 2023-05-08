@@ -6,7 +6,7 @@ interface TableUser {
   username: string;
   password: string;
   birthdate: string;
-  profileImage: string;
+  profileImage: string | null;
   favoriteGameId: ForeignKey | null;
   createdAt: string;
 }

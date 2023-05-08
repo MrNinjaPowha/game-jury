@@ -5,27 +5,18 @@ import SearchBar from './searcbar';
 import SearchModal from './searchModal';
 import PageMenu from './pageMenu';
 import { useEffect, useState } from 'react';
-import { VerifyTokenResponse } from '@/pages/api/users/verify-token';
 import { UserTokenObject } from '@/pages/api/users/authenticate';
 import ProfileMenu from './profileMenu';
 import { JwtPayload } from 'jsonwebtoken';
+import { getVerifiedToken } from '@/helpers/account/webToken';
 
 export default function Header() {
   const [user, setUser] = useState<JwtPayload & UserTokenObject>();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    fetch('/api/users/verify-token', {
-      method: 'POST',
-      body: JSON.stringify(token),
-    })
-      .then((res) => res.json())
-      .then((res: VerifyTokenResponse) => {
-        if (!res.userToken || !res.success) return;
-        if (typeof res.userToken !== 'object') return;
-
-        const userToken = res.userToken as JwtPayload & UserTokenObject;
-        if (userToken.username) setUser(userToken);
+    getVerifiedToken()
+      .then((tokenObject) => {
+        if (tokenObject) setUser(tokenObject);
       })
       .catch((err) => console.error(err));
   }, []);

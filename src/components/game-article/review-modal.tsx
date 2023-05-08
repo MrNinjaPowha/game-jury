@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import Modal, { ModalProps } from '../modal';
 import RatingSelector from './rating-selector';
 import LoadingButton from '../loadingButton';
+import { getVerifiedToken } from '@/helpers/account/webToken';
 
 export default function ReviewModal(props: ModalProps & { gameId: number }) {
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +17,7 @@ export default function ReviewModal(props: ModalProps & { gameId: number }) {
     props.onClose();
   }
 
-  function onSubmit() {
+  async function onSubmit() {
     if (!messageRef) {
       setError('Something went wrong. Please try again later!');
       return;
@@ -27,12 +28,21 @@ export default function ReviewModal(props: ModalProps & { gameId: number }) {
     }
 
     setSubmitting(true);
+
+    let userId: number | null = null;
+    try {
+      const user = await getVerifiedToken();
+      if (user) userId = user.id;
+    } catch (err) {
+      console.error(err);
+    }
+
     fetch('/api/db/post-review', {
       method: 'POST',
       body: JSON.stringify({
         gameId: props.gameId,
         rating,
-        userId: null,
+        userId,
         message: messageRef.current?.value || null,
       }),
     })

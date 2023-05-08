@@ -16,7 +16,7 @@ const VerifyToken: NextApiHandler = (req, res) => {
   const token = JSON.parse(req.body);
 
   if (typeof token !== 'string') {
-    res.status(400).send({ message: 'Body needs to be a token string.' });
+    res.status(400).send({ message: 'Body needs to be a string.' });
     return;
   }
 
