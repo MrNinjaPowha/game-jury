@@ -28,15 +28,21 @@ export default function GameLibrary() {
   const html =
     gamesData?.map((game) => {
       return (
-        <Link className="relative" href={`/games/${game.titleSlug}`} key={game.titleSlug}>
+        <Link
+          className="group relative overflow-hidden"
+          href={`/games/${game.titleSlug}`}
+          key={game.titleSlug}
+        >
           <Image
             src={`/img/game/box-art/${game.boxArtImage}`}
             alt={`${game.title} box art`}
             width={100}
             height={100}
           />
-          <div className="absolute inset-x-0 bottom-0 bg-slate-900 bg-opacity-90 p-2">
-            <span>{game.title}</span>
+          <div className="absolute inset-0 flex items-end">
+            <div className="flex h-12 w-full items-center bg-gray-600 !bg-opacity-90 p-2 font-semibold text-gray-200 transition-all group-hover:h-full group-focus:h-full dark:bg-slate-800">
+              <span>{game.title}</span>
+            </div>
           </div>
         </Link>
       );
