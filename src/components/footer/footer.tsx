@@ -15,6 +15,9 @@ export default function Footer() {
           <Link className="link" href={'/about'}>
             About Us
           </Link>
+          <Link className="link" href={'/terms-of-service'}>
+            Terms of Service
+          </Link>
           <a
             className="link"
             href={'https://github.com/MrNinjaPowha'}
