@@ -44,7 +44,7 @@ export default function GameArticle(props: { data: string }) {
   return (
     <>
       <Head>
-        <title>Game Jury - {data.title}</title>
+        <title>Game Jury - {data.title || 'unknown'}</title>
       </Head>
       <Layout>
         <h2 className="my-4 font-montserrat text-4xl">{data.title}</h2>
