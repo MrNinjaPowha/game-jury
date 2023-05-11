@@ -49,15 +49,15 @@ export default function GameArticle(props: { data: string }) {
       <Layout>
         <h2 className="my-4 font-montserrat text-4xl">{data.title}</h2>
         <div className="flex gap-4">
-          <table className="">
-            <caption>{data.title}</caption>
+          <table>
+            <caption className="text-lg underline">{data.title}</caption>
             <tbody>
               <tr>
                 <th>Age rating</th>
                 <td>
                   <div>
                     <Image
-                      className="max-h-12"
+                      className="max-h-12 w-auto"
                       src={`/img/age-rating/${data.ageRatingImage}`}
                       alt={`${data.ageRatingName}`}
                       width={100}
@@ -68,7 +68,9 @@ export default function GameArticle(props: { data: string }) {
               </tr>
               <tr>
                 <th>Release date</th>
-                <td>{new Date(data.releaseDate).toLocaleDateString()}</td>
+                <td>
+                  {new Date(data.releaseDate).toLocaleDateString('en-UK', { dateStyle: 'long' })}
+                </td>
               </tr>
               {relationsRows}
             </tbody>
