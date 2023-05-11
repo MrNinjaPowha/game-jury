@@ -21,8 +21,11 @@ export type User = Yup.InferType<typeof userSchema>;
 async function isUsernameAvailable(name: string) {
   try {
     const res = await fetch(`/api/users/available/${name}`);
-    const data: TableUser[] = await res.json();
-    return data.length ? false : true;
+    const { available } = await res.json();
+
+    if (typeof available !== 'boolean') return false;
+
+    return available;
   } catch (err) {
     console.error(err);
     return false;
