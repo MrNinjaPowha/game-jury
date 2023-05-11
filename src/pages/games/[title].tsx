@@ -48,8 +48,8 @@ export default function GameArticle(props: { data: string }) {
       </Head>
       <Layout>
         <h2 className="my-4 font-montserrat text-4xl">{data.title}</h2>
-        <div className="flex gap-4">
-          <table>
+        <div className="flex flex-wrap gap-4 md:flex-nowrap">
+          <table className="max-w-sm">
             <caption className="text-lg underline">{data.title}</caption>
             <tbody>
               <tr>
