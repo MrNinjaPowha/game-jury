@@ -29,7 +29,7 @@ export default function GameLibrary() {
     gamesData?.map((game) => {
       return (
         <Link
-          className="group relative overflow-hidden"
+          className="group relative max-w-[12rem] overflow-hidden"
           href={`/games/${game.titleSlug}`}
           key={game.titleSlug}
         >
@@ -40,7 +40,7 @@ export default function GameLibrary() {
             height={100}
           />
           <div className="absolute inset-0 flex items-end">
-            <div className="flex h-12 w-full items-center bg-gray-600 !bg-opacity-90 p-2 font-semibold text-gray-200 transition-all group-hover:h-full group-focus:h-full dark:bg-slate-800">
+            <div className="flex h-12 w-full items-center bg-gray-600 !bg-opacity-90 p-2 font-semibold text-gray-200 transition-all group-hover:h-full group-focus-visible:h-full dark:bg-slate-800">
               <span>{game.title}</span>
             </div>
           </div>
