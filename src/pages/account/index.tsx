@@ -38,7 +38,7 @@ export default function Profile() {
             />
           ) : (
             <div className="flex h-24 w-24 items-center justify-center rounded-full border border-gray-400 bg-red-700 text-6xl text-gray-200 dark:border-gray-300">
-              {user.username[0]}
+              {user.username[0].toUpperCase()}
             </div>
           )}
           <h2 className="font-montserrat text-4xl">{user.username}</h2>

@@ -22,7 +22,7 @@ export default function ProfileMenu(props: { user: JwtPayload & UserTokenObject 
           />
         ) : (
           <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-400 bg-red-700 text-3xl text-gray-200 dark:border-gray-300">
-            {props.user.username[0]}
+            {props.user.username[0].toUpperCase()}
           </div>
         )}
       </Dropdown.Button>
