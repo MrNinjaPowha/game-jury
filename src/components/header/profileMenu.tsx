@@ -6,7 +6,7 @@ import { UserTokenObject } from '@/pages/api/users/authenticate';
 export default function ProfileMenu(props: { user: JwtPayload & UserTokenObject }) {
   function logOut() {
     localStorage.removeItem('token');
-    window.location.reload();
+    window.location.assign('/');
   }
 
   return (
